@@ -37,6 +37,7 @@ module.exports = (env = {}) => ({
           options: {
             plugins: [
               require('./tip'),
+              require('./highlight'),
               require('remark-slug'),
               [
                 require('remark-autolink-headings'),

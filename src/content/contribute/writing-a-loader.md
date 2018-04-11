@@ -17,7 +17,7 @@ To test a single loader, you can simply use `path` to `resolve` a local file wit
 
 __webpack.config.js__
 
-``` js
+```js
 {
   test: /\.js$/
   use: [
@@ -33,7 +33,7 @@ To test multiple, you can utilize the `resolveLoader.modules` configuration to u
 
 __webpack.config.js__
 
-``` js
+```js
 resolveLoader: {
   modules: [
     'node_modules',
@@ -66,7 +66,7 @@ So, in the following example, the `foo-loader` would be passed the raw resource 
 
 __webpack.config.js__
 
-``` js
+```js
 {
   test: /\.js/,
   use: [
@@ -122,7 +122,7 @@ Take advantage of the [`loader-utils`](https://github.com/webpack/loader-utils) 
 
 __loader.js__
 
-``` js
+```js
 import { getOptions } from 'loader-utils';
 import validateOptions from 'schema-utils';
 
@@ -152,7 +152,7 @@ If a loader uses external resources (i.e. by reading from filesystem), they __mu
 
 __loader.js__
 
-``` js
+```js
 import path from 'path';
 
 export default function(source) {
@@ -197,7 +197,7 @@ If the loader you're working on is a simple wrapper around another package, then
 
 For instance, the `sass-loader` [specifies `node-sass`](https://github.com/webpack-contrib/sass-loader/blob/master/package.json) as peer dependency like so:
 
-``` js
+```js
 "peerDependencies": {
   "node-sass": "^4.0.0"
 }
@@ -208,13 +208,13 @@ For instance, the `sass-loader` [specifies `node-sass`](https://github.com/webpa
 
 So you've written a loader, followed the guidelines above, and have it set up to run locally. What's next? Let's go through a simple unit testing example to ensure our loader is working the way we expect. We'll be using the [Jest](https://facebook.github.io/jest/) framework to do this. We'll also install `babel-jest` and some presets that will allow us to use the `import` / `export` and `async` / `await`. Let's start by installing and saving these as a `devDependencies`:
 
-``` bash
+```bash
 npm install --save-dev jest babel-jest babel-preset-env
 ```
 
 __.babelrc__
 
-``` json
+```json
 {
   "presets": [[
     "env",
@@ -231,7 +231,7 @@ Our loader will process `.txt` files and simply replace any instance of `[name]`
 
 __src/loader.js__
 
-``` js
+```js
 import { getOptions } from 'loader-utils';
 
 export default function loader(source) {
@@ -247,19 +247,19 @@ We'll use this loader to process the following file:
 
 __test/example.txt__
 
-``` text
+```text
 Hey [name]!
 ```
 
 Pay close attention to this next step as we'll be using the [Node.js API](/api/node) and [`memory-fs`](https://github.com/webpack/memory-fs) to execute webpack. This lets us avoid emitting `output` to disk and will give us access to the `stats` data which we can use to grab our transformed module:
 
-``` bash
+```bash
 npm install --save-dev webpack memory-fs
 ```
 
 __test/compiler.js__
 
-``` js
+```js
 import path from 'path';
 import webpack from 'webpack';
 import memoryfs from 'memory-fs';
@@ -303,7 +303,7 @@ And now, finally, we can write our test and add an npm script to run it:
 
 __test/loader.test.js__
 
-``` js
+```js
 import compiler from './compiler.js';
 
 test('Inserts name and outputs JavaScript', async () => {
@@ -316,7 +316,7 @@ test('Inserts name and outputs JavaScript', async () => {
 
 __package.json__
 
-``` js
+```js
 "scripts": {
   "test": "jest"
 }
@@ -324,7 +324,7 @@ __package.json__
 
 With everything in place, we can run it and see if our new loader passes the test:
 
-``` bash
+```bash
  PASS  test/loader.test.js
   ✓ Inserts name and outputs JavaScript (229ms)
 

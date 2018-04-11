@@ -266,7 +266,7 @@ webpack({
 
 By default, webpack reads files and writes files to disk using a normal file system. However, it is possible to change the input or output behavior using a different kind of file system (memory, webDAV, etc). To accomplish this, one can change the `inputFileSystem` or `outputFileSystem`. For example, you can replace the default `outputFileSystem` with [`memory-fs`](https://github.com/webpack/memory-fs) to write files to memory instead of to disk:
 
-``` js
+```js
 const MemoryFS = require("memory-fs");
 const webpack = require("webpack");
 

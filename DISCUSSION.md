@@ -19,6 +19,9 @@ this branch:
 - [x] Add custom route for landing page (greg)
 - [x] Fixed sidebar (Fernando)
 - [x] Add anchor icons (Fernando)
+- [x] Add color theme (Fernando)
+- [ ] Create remark plugins for custom languages: `js-with-link`, `js-with-link-with-details` (Fernando)
+- [ ] Normalize all code tags: javascript -> js, sh|shell -> bash (Fernando)
 
 Some of these should be fairly quick adds now that the site works. The two
 toughest ones are most likely the markdown parsing and external population. The
