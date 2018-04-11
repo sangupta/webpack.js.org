@@ -36,7 +36,6 @@ module.exports = (env = {}) => ({
           loader: 'remark-loader',
           options: {
             plugins: [
-              // TODO: Add necessary remark plugins
               require('./tip'),
               require('remark-slug'),
               [
