@@ -13,7 +13,7 @@ this branch:
 - [x] Extract anchors into `_content.json` via `DirectoryTreePlugin` (Fernando)
 - [ ] Finish re-incorporating mobile sidebar
 - [x] Re-integrate google-analytics (Fernando)
-- [ ] Re-incorporate `redirects.json`
+- [x] Re-incorporate `redirects.json` (Eugene)
 - [x] Populate page title in `server.jsx` (Fernando)
 - [ ] Finish `Navigation` component (greg)
 - [x] Add custom route for landing page (greg)
